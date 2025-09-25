@@ -1,7 +1,15 @@
 h1 {
+<<<<<<< HEAD
     color: green;
+=======
+    color: yellow;
+>>>>>>> origin/feature_2
 }
 
 p {
     color: blue;
+}
+
+table {
+    background-color: lightblue;
 }
