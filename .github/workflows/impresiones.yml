@@ -1,0 +1,23 @@
+name: Impresiones en Consola
+
+on:
+  push:
+    branches:
+      - test_1_javi
+  pull_request:
+    branches:
+      - test_1_javi
+
+jobs:
+  imprimir:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v3
+
+      - name: Impresiones en consola
+        run: |
+          echo "Impresión 1"
+          echo "Impresión 2"
+          echo "Impresión 3"
