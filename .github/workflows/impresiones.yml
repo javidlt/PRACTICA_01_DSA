@@ -3,10 +3,11 @@ name: Impresiones en Consola
 on:
   push:
     branches:
-      - test_1_javi
+      - main
+      - javi/tarea8
   pull_request:
     branches:
-      - test_1_javi
+      - main
 
 jobs:
   imprimir:
@@ -15,6 +16,19 @@ jobs:
     steps:
       - name: Checkout código
         uses: actions/checkout@v3
+
+      - name: Configurar Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Ejecutar Python
+        run: |
+          python3 - <<EOF
+          print("Hola desde Python")
+          print("Python está corriendo dentro del workflow")
+          print("Todo funcionando correctamente :)")
+          EOF
 
       - name: Impresiones en consola
         run: |
