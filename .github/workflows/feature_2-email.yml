@@ -1,0 +1,35 @@
+name: Send Email on Push to Feature_2
+
+on:
+  push:
+    branches:
+      - feature_2
+
+jobs:
+  send-email:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Send email notification
+        uses: dawidd6/action-send-mail@v6
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          subject: "Cambios subidos a rama feature_2"
+          to: ${{ secrets.MAIL_TO }}
+          from: GitHub Actions
+          body: |
+            Se han subido cambios a la rama feature_2.
+
+            Repositorio: ${{ github.repository }}
+            Commit: ${{ github.sha }}
+            Autor: ${{ github.actor }}
+            Mensaje del commit: ${{ github.event.head_commit.message }}
+
+            Ver cambios: ${{ github.event.head_commit.url }}
