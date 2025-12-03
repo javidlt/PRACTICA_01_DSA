@@ -22,7 +22,7 @@ jobs:
           username: ${{ secrets.MAIL_USERNAME }}
           password: ${{ secrets.MAIL_PASSWORD }}
           subject: "Cambios subidos a rama main"
-          to: ${{ secrets.MAIL_TO || secrets.MAIL_USERNAME }}
+          to: javiercoding12@gmail.com
           from: GitHub Actions
           body: |
             Se han subido cambios a la rama main.
