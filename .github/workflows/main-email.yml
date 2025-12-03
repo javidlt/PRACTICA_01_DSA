@@ -16,14 +16,14 @@ jobs:
       - name: Send email notification
         uses: dawidd6/action-send-mail@v6
         with:
-          server_address: smtp.gmail.com
+          server_address: smtp.resend.com
           server_port: 465
           secure: true
-          username: ${{ secrets.MAIL_USERNAME }}
-          password: ${{ secrets.MAIL_PASSWORD }}
+          username: resend
+          password: ${{ secrets.RESEND_KEY }}
           subject: "Cambios subidos a rama main"
-          to: ${{ secrets.MAIL_TO }}
-          from: GitHub Actions
+          to: javiercoding12@gmail.com
+          from: GitHub Actions <onboarding@resend.dev>
           body: |
             Se han subido cambios a la rama main.
 
